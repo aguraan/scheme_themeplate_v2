@@ -1,0 +1,315 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+p {
+    font-weight: 300;
+}
+
+.btn-scheme {
+	background-color: transparent;
+	display: inline-block;
+    cursor: pointer;
+	padding: 1rem 2rem;
+	text-decoration: none;
+}
+.btn-scheme:hover {
+    background-color: transparent;
+    text-decoration: none;
+}
+.btn-scheme:active {
+	position: relative;
+	top: 1px;
+}
+
+.btn-scheme-primary {
+    color:#b41c1c;
+    border: 1px solid#b41c1c;
+}
+
+.btn-scheme-primary:hover {
+    color: #b41c1c;
+}
+
+/* ============================================= */
+/* Scrollbar                                     */
+/* ============================================= */
+
+body::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background-color: transparent;
+}
+
+body::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    box-shadow: inset 0 0 3px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+body::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
+    background-color: #333;
+}
+
+/* ================================================= */
+/* Main                                              */
+/* ================================================= */
+
+.scheme-logo {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    color: #b41c1c;
+}
+
+.scheme-logo:hover {
+    color: #b41c1c;
+}
+
+.main-navbar {
+    background-color: #ffffff;
+}
+
+.masthead {
+    height: 95vh;
+    min-height: 500px;
+    background-image: linear-gradient(to right top, #455a64, #4e646e, #586e79, #617883, #6b828e, #768d98, #8297a2, #8da2ac, #9dafb8, #aebdc4, #becad0, #cfd8dc);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =============================================== */
+/* Slider                                          */
+/* =============================================== */
+
+.st0, .st1 {
+    fill: none;
+    stroke-width: 0.2;
+}
+
+.st1 {
+    stroke:#000000;
+}
+.st0 {
+    stroke:#C0C0C0;
+}
+
+.work-scheme svg {
+    max-width: 100px;
+    max-height: 100px;
+    transform: rotateZ(90deg);
+}
+
+.scheme-paths {
+    fill: transparent;
+    stroke: #333;
+    stroke-width: .2;
+    transition: fill 300ms;
+}
+
+.work-scheme .row:focus {
+    outline: none;
+}
+
+.work-scheme .row:hover .scheme-paths,
+.work-scheme .row:focus .scheme-paths {
+    fill: #b41c1c;
+    stroke: none;
+}
+
+/* ============================================== */
+/* Footer                                         */
+/* ============================================== */
+
+#particle-slider {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+html .slides,
+body .slides,
+html > .dg,
+body > .dg {
+    display: none;
+}
+
+.main-foot {
+    background: #191919;
+    color: white;
+}
+
+#send-button {
+    background: transparent;
+    border: none;
+    border-left: 1px solid #a9a9a9;
+    border-right: 1px solid #a9a9a9;
+    border-radius: .8rem;
+    color: #a9a9a9;
+    font-size: .8rem;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+
+#send-button:hover {
+    color: white;
+}
+
+#send-button:focus {
+    outline: none;
+    border-left: 1px solid #b41c1c;
+    border-right: 1px solid #b41c1c;
+}
+
+.mail-send-form {
+    display: inline-table;
+    width: 70%;
+}
+
+.underline-animate {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.underline-animate::after,
+.underline-animate::before {
+    content: '';
+    display: block;
+    width: inherit;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+}
+
+.underline-animate::after {
+    background: linear-gradient(to right, transparent, #a9a9a9, #a9a9a9, #a9a9a9, transparent );
+    transform: scale(1);
+    transform-origin: right;
+    transition: all 200ms ease-out;
+}
+
+.underline-animate::before {
+    background: linear-gradient(to right, transparent, #b41c1c, #b41c1c, #b41c1c, transparent );
+    transform: scale(0);
+    transform-origin: left;
+    transition: all 200ms ease-in;
+}
+
+.underline-animate:focus-within::before {
+    transform: scale(1)
+}
+
+.underline-animate:focus-within::after {
+    transform: scale(0)
+}
+
+.mail-send {
+    height: 2rem;
+    background: transparent;
+    color: white;
+    border: none;
+}
+
+.mail-send:focus {
+    outline: none;
+  }
+
+textarea.mail-send {
+    height: 4rem;
+    resize: none;
+}
+
+.scheme-contacts {
+    display: inline-block;
+}
+
+.scheme-contacts a {
+    color: #a9a9a9;
+    vertical-align: middle;
+}
+
+.scheme-contacts a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+#copyright {
+    color: #a9a9a9;
+    font-size: .8rem;
+}
+
+/* xs */
+@media (max-width: 575.98px) {
+    .mail-send-form {
+        width: 100%;
+    }
+}
+
+/* sm */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .carousel-inner svg {
+        width: 120%;
+        margin-left: -10%;
+    }
+}
+
+/* md */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    
+
+    .carousel-inner svg {
+        width: 120%;
+        margin-left: -10%;
+    }
+}
+
+/* ld */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .mail-send-form {
+        width: 90%;
+    }
+
+    .carousel-inner svg {
+        width: 130%;
+        margin-top: 10%;
+        margin-left: -10%;
+    }
+
+}
+
+/* xl */
+@media (min-width: 1200px) {
+
+    .carousel-inner svg {
+        width: 130%;
+        margin-top: 0;
+        margin-left: -10%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px !important;
+    }
+
+    #v-carousel .carousel-inner {
+        overflow: visible !important;
+    }
+
+    .carousel-inner svg {
+        width: 130%;
+        margin-left: -10%;
+        margin-top: -10%;
+    }
+}
