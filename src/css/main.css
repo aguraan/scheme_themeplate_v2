@@ -25,10 +25,13 @@ p {
 .btn-scheme-primary {
     color:#b41c1c;
     border: 1px solid#b41c1c;
+    transition: all .3s;
 }
 
 .btn-scheme-primary:hover {
-    color: #b41c1c;
+    /* color: #b41c1c; */
+    color: #fff;
+    background-color: #b41c1c;
 }
 
 /* ============================================= */
@@ -63,17 +66,23 @@ textarea::-webkit-scrollbar-thumb:hover {
 /* Main                                              */
 /* ================================================= */
 
-.scheme-logo {
+.logo {
+    width: 100px;
+    height: 28.83px;
+}
+
+.logo-text {
     font-family: 'Montserrat Subrayada', sans-serif;
     color: #b41c1c;
 }
 
-.scheme-logo:hover {
+.color-main {
     color: #b41c1c;
+    font-weight: bold;
 }
 
-.main-navbar {
-    background-color: #ffffff;
+#header-text-anim {
+    transition: all .2;
 }
 
 .masthead {
@@ -83,6 +92,59 @@ textarea::-webkit-scrollbar-thumb:hover {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+header {
+    position: relative;
+    background-color: black;
+    height: 95vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+  
+header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+    position: relative;
+    z-index: 2;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+/* header .text-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid black;
+} */
+
+@media (pointer: coarse) and (hover: none) {
+    header {
+        background: url('../img/header.jpg') black no-repeat center center scroll;
+    }
+    header video {
+        display: none;
+    }
 }
 
 /* =============================================== */
@@ -99,6 +161,22 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 .st0 {
     stroke:#C0C0C0;
+}
+
+/* .carousel-item {
+    overflow: visible !important;
+} */
+
+.work-scheme-lines {
+    position: absolute;
+    width: 20%;
+    height: 1px;
+    background-color: #c0c0c0;
+    top: 50%;
+}
+
+.work-scheme-line-right {
+    right: 0;
 }
 
 .work-scheme svg {
@@ -145,7 +223,7 @@ body > .dg {
 
 .main-foot {
     background: #191919;
-    color: white;
+    color: #a9a9a9;
 }
 
 #send-button {
@@ -153,7 +231,6 @@ body > .dg {
     border: none;
     border-left: 1px solid #a9a9a9;
     border-right: 1px solid #a9a9a9;
-    border-radius: .8rem;
     color: #a9a9a9;
     font-size: .8rem;
     cursor: pointer;
@@ -250,6 +327,9 @@ textarea.mail-send {
 
 /* xs */
 @media (max-width: 575.98px) {
+    h1 * {
+        font-size: .8em;
+    }
     .mail-send-form {
         width: 100%;
     }
@@ -266,6 +346,10 @@ textarea.mail-send {
 
 /* md */
 @media (min-width: 768px) and (max-width: 991.98px) {
+
+    .work-scheme-lines {
+        width: 15%;
+    }
     
 
     .carousel-inner svg {
@@ -276,6 +360,7 @@ textarea.mail-send {
 
 /* ld */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+
     .mail-send-form {
         width: 90%;
     }
@@ -291,6 +376,10 @@ textarea.mail-send {
 /* xl */
 @media (min-width: 1200px) {
 
+    .work-scheme-lines {
+        width: 25%;
+    }
+
     .carousel-inner svg {
         width: 130%;
         margin-top: 0;
@@ -303,7 +392,7 @@ textarea.mail-send {
         max-width: 1400px !important;
     }
 
-    #v-carousel .carousel-inner {
+    .carousel-inner {
         overflow: visible !important;
     }
 
