@@ -21,23 +21,96 @@ new ParticleSlider({
 })
 
 $(document).ready(function() {
-    const svg = $('.carousel-item.active')[0].children[0]
-    Array.from(svg.children).forEach(path => {
-        const len = path.getTotalLength()
-        path.style.strokeDasharray = len
-        path.style.strokeDashoffset = len
-        setTimeout(() => {
-            path.style.transition = 'stroke-dashoffset 1500ms linear'
-            path.style.strokeDashoffset = 0
-            path.addEventListener('transitionend', removeTransition)
-        }, 100)
+
+  // show navbar
+  $(function() {
+    $(window).scroll(function() {
+
+        if ($(this).scrollTop() > 100) {
+            $('.navbar').slideDown()
+        } else {
+            $('.navbar').slideUp()
+        }
     })
+  })
+
+  // header animation
+  const text = $('#header-text-anim').html()
+  $('#header-text-anim').html('')
+  setTimeout(() => {
+    let timerId
+    let i = 0
+    const animate = () => {
+      timerId = setTimeout(function() {
+        if (i >= text.length) return clearTimeout(timerId)
+
+        $('#header-text-anim').append(text[i])
+        i++
+        animate()
+
+      }, 50)
+    }
+    animate()
+  }, 500)
+
+  // slider animation
+  const svg = $('.carousel-item.active')[0].children[0]
+  Array.from(svg.children).forEach(path => {
+    const len = path.getTotalLength()
+    path.style.strokeDasharray = len
+    path.style.strokeDashoffset = len
+    setTimeout(() => {
+      path.style.transition = 'stroke-dashoffset 1500ms linear'
+      path.style.strokeDashoffset = 0
+      path.addEventListener('transitionend', removeTransition)
+    }, 100)
+  })
 })
 
 $('#v-carousel').on('slid.bs.carousel', function(e) { // second active 
     const svg = e.relatedTarget.children[0]
     Array.from(svg.children).forEach(path => resetStroke(path))
 })
+// let object, width, height
+
+// $(document).ready(function() {
+//     object = $('.carousel-item.active object')[0]
+//     object.addEventListener('load', function objectLoad() {
+//         width = $('.carousel-inner').width()
+//         height = $('.carousel-inner').height()
+//         $('.carousel-item').width(width).height(height)
+//         const svg = object.contentDocument.children[0]
+//         Array.from(svg.children).slice(1).forEach(path => {
+//             const len = path.getTotalLength()
+//             path.style.strokeDasharray = len
+//             path.style.strokeDashoffset = len
+//             setTimeout(() => {
+//                 path.style.transition = 'stroke-dashoffset 1500ms linear'
+//                 path.style.strokeDashoffset = 0
+//                 path.addEventListener('transitionend', removeTransition)
+//             }, 0)
+//         })
+//         object.removeEventListener('load', objectLoad)
+//     })
+// })
+
+// $(window).resize(function() {
+//     $('.carousel-item').width('').height('')
+//     width = $('.carousel-inner').width()
+//     height = $('.carousel-inner').height()
+//     $('.carousel-item').width(width).height(height)
+// })
+
+// $('#v-carousel').on('slide.bs.carousel', function(e) { // second active 
+//     const object = e.relatedTarget.children[0]
+//     object.style.visibility = 'hidden'
+//     object.addEventListener('load', function objectLoad() {
+//         object.style.visibility = ''
+//         const svg = object.contentDocument.children[0]
+//         Array.from(svg.children).slice(1).forEach(path => resetStroke(path))
+//         object.removeEventListener('load', objectLoad)
+//     })
+// })
 
 function removeTransition(e) {
     e.target.style.transition = ''
@@ -52,7 +125,7 @@ function resetStroke(stroke) {
         stroke.style.transition = 'stroke-dashoffset 1500ms linear'
         stroke.style.strokeDashoffset = 0
         stroke.addEventListener('transitionend', removeTransition)
-    }, 100)
+    }, 0)
 }
 
 $('a[href*="#"]')
@@ -74,8 +147,8 @@ $('a[href*="#"]')
         // Only prevent default if animation is actually gonna happen
         event.preventDefault();
         $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 500, function() {
+          scrollTop: target.offset().top - 200
+        }, 1000, function() {
           // Callback after animation
           // Must change focus!
           var $target = $(target);
