@@ -1,0 +1,8 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://scheme.com.ua/sitemap.xml
+
+User-agent: Yandex
+Disallow:
+Host: scheme.com.ua

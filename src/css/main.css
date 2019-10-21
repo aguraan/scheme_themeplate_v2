@@ -320,6 +320,10 @@ textarea.mail-send {
     text-decoration: none;
 }
 
+.scheme-contacts a:hover svg {
+    fill: #fff;
+}
+
 #copyright {
     color: #a9a9a9;
     font-size: .8rem;
