@@ -81,8 +81,13 @@ textarea::-webkit-scrollbar-thumb:hover {
     font-weight: bold;
 }
 
-#header-text-anim {
-    transition: all .2;
+#header-text-anim > span {
+    font-size: 0;
+    transition: all .4s;
+}
+
+#header-text-anim > span.char-animation {
+    font-size: inherit;
 }
 
 .masthead {

@@ -35,23 +35,43 @@ $(document).ready(function() {
   })
 
   // header animation
-  const text = $('#header-text-anim').html()
-  $('#header-text-anim').html('')
-  setTimeout(() => {
-    let timerId
-    let i = 0
-    const animate = () => {
-      timerId = setTimeout(function() {
-        if (i >= text.length) return clearTimeout(timerId)
+  // const text = $('#header-text-anim').html()
+  // $('#header-text-anim').html('')
+  // setTimeout(() => {
+  //   let timerId
+  //   let i = 0
+  //   const animate = () => {
+  //     timerId = setTimeout(function() {
+  //       if (i >= text.length) return clearTimeout(timerId)
 
-        $('#header-text-anim').append(text[i])
-        i++
-        animate()
+  //       $('#header-text-anim').append(text[i])
+  //       i++
+  //       animate()
 
-      }, 50)
+  //     }, 50)
+  //   }
+  //   animate()
+  // }, 500)
+
+  const headerTextElement = document.getElementById('header-text-anim')
+  const headerText = headerTextElement.textContent
+  const splitHeaderText = headerText.split('')
+  headerTextElement.innerHTML = splitHeaderText.map(char => `<span>${ char }</span>`).join('')
+
+  let char = 0
+  let timer = setInterval(onTick, 50)
+
+  function onTick() {
+    const span = headerTextElement.querySelectorAll('span')[char]
+    span.classList.add('char-animation')
+    char++
+
+    if (char >= splitHeaderText.length) {
+      clearInterval(timer)
+      timer = null
+      return
     }
-    animate()
-  }, 500)
+  }
 
   // slider animation
   const svg = $('.carousel-item.active')[0].children[0]
